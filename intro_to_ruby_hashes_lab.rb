@@ -24,22 +24,24 @@ end
 
 def my_hash_creator(key, value)
   # return a hash that includes the key and value parameters passed into this method
-  hashing_it_up = {key: "value"}
+  hashing_it_up = {key => value}
   return hashing_it_up
 end
 
 def read_from_hash(hash, key)
-  # return the correct value using the hash and key parameters
-  hash = {:key => "value"}
-  if (hash[:key] === "value")
-  return hash[:key]
-else 
-  return nil 
-end 
+  return hash[key]
 end
 
 def update_counting_hash(hash, key)
+ if hash[key]
+    hash[key] += 1
+    return hash
+ else 
+   hash[key] = 1 
+   return hash
+ end 
   # given a hash an a key as parameters, return an updated hash
   # if the provided key is not present in the hash, add it and assign it to the value of 1
   # if the provided key is present, increment its value by 1
 end
+
